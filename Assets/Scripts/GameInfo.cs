@@ -53,6 +53,10 @@ public class MapData
         Idx = idx;
 
         var rows = data.Split("\r\n");
+        if (rows.Length == 0)
+        {
+            rows = data.Split("\n");
+        }
 
         string[] stageData = rows[0].Split(",");
 

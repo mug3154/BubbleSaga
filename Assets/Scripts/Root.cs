@@ -62,6 +62,10 @@ public class Root : Singleton<Root>
         var data = Addressables.LoadAssetAsync<TextAsset>($"Map/Map{map}Stages/{stage}.csv").WaitForCompletion();
 
         var rows = data.text.Split("\r\n");
+        if(rows.Length == 0)
+        {
+            rows = data.text.Split("\n");
+        }
 
         if(Game.Instance != null)
         {
